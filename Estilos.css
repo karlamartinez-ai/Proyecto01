@@ -1,0 +1,224 @@
+/* ==========================================================
+   ULTRA-CUTE PHARMA-CAFÉ AESTHETIC - EXPERIMENTAL CSS
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=Quicksand:wght@500;700&display=swap');
+
+:root {
+  --cafe-bg: #fff5f2;
+  --cafe-card-bg: #fffbf9;
+  --cafe-espresso: #3d261c;
+  --cafe-mocha: #6f4e37;
+  --cafe-caramel: #d4a373;
+  --cafe-pink: #ffb7b2;
+  --cafe-mint: #b5e2fa;
+  --cafe-cream: #faedcd;
+  --cafe-shadow: 0 12px 35px rgba(111, 78, 55, 0.12);
+  --cafe-border: #fce1d9;
+}
+
+body {
+  background-color: var(--cafe-bg);
+  color: var(--cafe-espresso);
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  /* Fondo con patrón de granos de café y cruces médicas miniatura */
+  background-image: 
+    radial-gradient(var(--cafe-border) 2px, transparent 2px),
+    radial-gradient(var(--cafe-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Contenedor principal estilo "Estuche de Barista Médico" */
+.kawaii-pharma-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--cafe-card-bg);
+  border: 4px solid var(--cafe-caramel);
+  border-radius: 35px;
+  padding: 45px;
+  box-shadow: var(--cafe-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sello decorativo flotante en la esquina superior */
+.kawaii-pharma-wrapper::before {
+  content: "✨ Rx COFFEE ✨";
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: var(--cafe-cream);
+  color: var(--cafe-mocha);
+  font-family: 'Fredoka', cursive;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 2px dashed var(--cafe-caramel);
+  transform: rotate(5deg);
+}
+
+/* Encabezado con Animación de Taza y Vapor Real */
+.cafe-header {
+  text-align: center;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.cafe-logo-cup {
+  font-size: 3.5rem;
+  display: inline-block;
+  position: relative;
+  animation: cupBounce 2s ease-in-out infinite alternate;
+}
+
+@keyframes cupBounce {
+  0% { transform: translateY(0) rotate(-3deg); }
+  100% { transform: translateY(-8px) rotate(3deg); }
+}
+
+/* Líneas de vapor animadas saliendo de la taza */
+.cafe-logo-cup::after {
+  content: "〰️ 〰️";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: var(--cafe-caramel);
+  letter-spacing: 2px;
+  animation: steamRise 1.8s linear infinite;
+  opacity: 0;
+}
+
+@keyframes steamRise {
+  0% { transform: translate(-50%, 10px) scale(0.8); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translate(-50%, -15px) scale(1.2); opacity: 0; }
+}
+
+.cafe-header h1 {
+  font-family: 'Fredoka', cursive;
+  color: var(--cafe-espresso);
+  font-size: 2.6rem;
+  margin: 10px 0 5px 0;
+  letter-spacing: 1px;
+}
+
+.cafe-header p {
+  color: var(--cafe-mocha);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Tarjetas de Fármacos / Bebidas Estilo "Menu Board" */
+.brewing-card {
+  background: #ffffff;
+  border: 3px solid var(--cafe-border);
+  border-radius: 25px;
+  padding: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(212, 163, 115, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brewing-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(212, 163, 115, 0.25);
+  border-color: var(--cafe-pink);
+}
+
+/* Encabezado de la tarjeta con diseño de ticket de cafetería */
+.brewing-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dotted var(--cafe-border);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.brewing-title {
+  font-family: 'Fredoka', cursive;
+  color: var(--cafe-espresso);
+  font-size: 1.6rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Etiquetas de Concentración (Dosis / Potencia tipo "Shots") */
+.potency-tag {
+  background: var(--cafe-pink);
+  color: #fff;
+  font-family: 'Fredoka', cursive;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(255, 183, 178, 0.4);
+}
+
+.potency-tag.blue {
+  background: var(--cafe-mint);
+  color: #2c5270;
+  box-shadow: 0 4px 10px rgba(181, 226, 250, 0.4);
+}
+
+/* Contenido de la receta farmacológica */
+.recipe-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+  .recipe-details { grid-template-columns: 1fr; }
+}
+
+.recipe-box {
+  background: var(--cafe-bg);
+  border-radius: 18px;
+  padding: 18px;
+  border: 2px solid var(--cafe-border);
+}
+
+.recipe-box h4 {
+  font-family: 'Fredoka', cursive;
+  margin: 0 0 8px 0;
+  color: var(--cafe-mocha);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recipe-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--cafe-espresso);
+}
+
+/* Notas de cata / Alertas farmacológicas estilo "Cup Note" */
+.cup-notes-alert {
+  background: linear-gradient(135deg, var(--cafe-cream) 0%, #fff 100%);
+  border-left: 6px solid var(--cafe-caramel);
+  padding: 15px 20px;
+  border-radius: 0 16px 16px 0;
+  font-size: 0.95rem;
+  color: var(--cafe-mocha);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cup-notes-alert span {
+  font-size: 1.4rem;
+}
